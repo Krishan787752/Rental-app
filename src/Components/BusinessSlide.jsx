@@ -25,18 +25,19 @@ const BusinessSlider = () => {
   };
 
   return (
-    <div className="relative w-[calc(100%-40px)] mx-auto h-[350px] overflow-hidden mt-10 rounded-2xl shadow-lg">
+    <div className="relative w-full max-w-[900px] mx-auto h-[220px] sm:h-[350px] overflow-hidden mt-6 sm:mt-10 rounded-xl sm:rounded-2xl shadow-lg">
       {/* Slide Image */}
       <img
         src={slides[current]}
         alt="slide"
-        className="w-full h-full object-cover transition-all duration-700 rounded-2xl"
+        className="w-full h-full object-cover transition-all duration-700 rounded-xl sm:rounded-2xl"
       />
 
       {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow hover:bg-gray-200"
+        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow hover:bg-gray-200"
+        aria-label="Previous Slide"
       >
         ❮
       </button>
@@ -44,7 +45,8 @@ const BusinessSlider = () => {
       {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow hover:bg-gray-200"
+        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow hover:bg-gray-200"
+        aria-label="Next Slide"
       >
         ❯
       </button>

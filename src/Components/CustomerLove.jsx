@@ -15,19 +15,19 @@ export default function ImageCardSlider() {
   // Custom Arrows
   const NextArrow = ({ onClick }) => (
     <div
-      className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-md cursor-pointer z-10"
+      className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-md cursor-pointer z-10"
       onClick={onClick}
     >
-      <FaChevronRight className="text-gray-700" />
+      <FaChevronRight className="text-gray-700 text-lg sm:text-xl" />
     </div>
   );
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-md cursor-pointer z-10"
+      className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-md cursor-pointer z-10"
       onClick={onClick}
     >
-      <FaChevronLeft className="text-gray-700" />
+      <FaChevronLeft className="text-gray-700 text-lg sm:text-xl" />
     </div>
   );
 
@@ -47,15 +47,15 @@ export default function ImageCardSlider() {
   };
 
   return (
-    <div className="w-full px-6 py-8 bg-white relative">
+    <div className="w-full px-2 sm:px-6 py-6 sm:py-8 bg-white relative">
       {/* Heading with emoji + text */}
-      <div className="flex items-center mb-6">
-        <span className="text-4xl mr-3">🙂</span>
+      <div className="flex items-center mb-4 sm:mb-6">
+        <span className="text-2xl sm:text-4xl mr-2 sm:mr-3">🙂</span>
         <div>
-          <h2 className="text-3xl font-thin text-gray-800">
+          <h2 className="text-xl sm:text-3xl font-thin text-gray-800">
             Our Customers Love
           </h2>
-          <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+          <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">
             Our Products and Services
           </p>
         </div>
@@ -64,11 +64,11 @@ export default function ImageCardSlider() {
       {/* Slider */}
       <Slider {...settings}>
         {slides.map((slide) => (
-          <div key={slide.id} className="px-3">
+          <div key={slide.id} className="px-1 sm:px-3">
             <img
               src={slide.img}
               alt={`Slide ${slide.id}`}
-              className="w-auto h-[180px] object-contain rounded-lg shadow-md"
+              className="w-full h-[140px] sm:h-[180px] object-cover rounded-lg shadow-md"
             />
           </div>
         ))}
