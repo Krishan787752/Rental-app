@@ -1,35 +1,12 @@
 import Slider from "react-slick";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export default function CustomSlider() {
-  const slides = [
-    {
-      id: 1,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_rent_desktop_1.jpg",
-    },
-    {
-      id: 2,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_unlmtd_desktop_1.jpg",
-    },
-    {
-      id: 3,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_buy_desktop_1.jpg",
-    },
-    {
-      id: 4,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_genz_rent_desktop_2.jpg",
-    },
-    {
-      id: 5,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/BUY_BANNERS_desktop_3.jpg",
-    },
-    {
-      id: 6,
-      img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/appliances_banner_rent_desktop2.jpg",
-    },
-  ];
+export default function CustomSlider({ showButtons = true }) {
+const slides = [
+   {
+     id: 1, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_rent_desktop_1.jpg", },
+      { id: 2, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_unlmtd_desktop_1.jpg", }, { id: 3, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_buy_desktop_1.jpg", }, { id: 4, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_genz_rent_desktop_2.jpg", }, { id: 5, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/BUY_BANNERS_desktop_3.jpg", }, { id: 6, img: "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/appliances_banner_rent_desktop2.jpg", }, ];
 
-  // Custom Arrows
   const NextArrow = ({ onClick }) => (
     <div
       className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-white p-2 sm:p-3 rounded-full shadow-md cursor-pointer z-10"
@@ -58,43 +35,39 @@ export default function CustomSlider() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
 
   return (
-    <div className="w-full px-2 sm:px-6 py-6 sm:py-10 pt-16 sm:pt-24 bg-white">
+    <div className="w-full px-2 sm:px-6 py-6 sm:py-10 pt-16 sm:pt-24 bg-white overflow-hidden">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="px-1 sm:px-2">
             <img
               src={slide.img}
               alt={`Slide ${slide.id}`}
-              className="w-full h-[160px] sm:h-[260px] object-cover rounded-lg shadow"
+              className="w-full min-h-[120px] h-[160px] sm:h-[260px] object-cover rounded-lg shadow transition-all duration-300"
             />
           </div>
         ))}
       </Slider>
 
-      {/* Buttons below slider */}
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-0 mt-2 sm:mt-[-4px]">
-        <button className="bg-blue-800 text-white px-6 sm:px-8 py-2 sm:py-3 font-semibold rounded-t-lg sm:rounded-l-lg w-full sm:w-auto">
-          Buy Furniture →
-        </button>
-        <button className="bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 font-semibold w-full sm:w-auto">
-          Rent Furniture →
-        </button>
-        <button className="bg-purple-800 text-white px-6 sm:px-8 py-2 sm:py-3 font-semibold rounded-b-lg sm:rounded-r-lg w-full sm:w-auto">
-          Unlmtd →
-        </button>
-      </div>
+      {/* Buttons only if showButtons = true */}
+      {showButtons && (
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-0 mt-2 sm:mt-[-4px]">
+          <button className="bg-blue-800 text-white px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold rounded-t-lg sm:rounded-l-lg w-full sm:w-auto transition hover:bg-blue-900">
+            Buy Furniture →
+          </button>
+          <button className="bg-orange-600 text-white px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold w-full sm:w-auto transition hover:bg-orange-700">
+            Rent Furniture →
+          </button>
+          <button className="bg-purple-800 text-white px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold rounded-b-lg sm:rounded-r-lg w-full sm:w-auto transition hover:bg-purple-900">
+            Unlmtd →
+          </button>
+        </div>
+      )}
     </div>
   );
 }

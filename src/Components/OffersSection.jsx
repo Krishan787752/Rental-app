@@ -26,7 +26,7 @@ const offers = [
   },
 ];
 
-const OffersSection = () => {
+const OffersSection = ({ showOffer = true })  => {
   return (
     <div className="w-[1152px] px-16 py-5 mt-10 ">
       {/* Section Header */}
