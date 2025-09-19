@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import CustomSlider from '../Components/Slider'
-import OffersSection from '../Components/OffersSection'
-import BusinessSlider from '../Components/BusinessSlide'
-import ImageCardSlider from '../Components/CustomerLove'
-import Footer from '../Components/Footer'
+import CustomSlider from '../Components/Dashboard Components/CustomSlider'
+import OffersSection from '../Components/Dashboard Components/OffersSection'
+import BusinessSlider from '../Components/Dashboard Components/BusinessSlide'
+import ImageCardSlider from '../Components/Dashboard Components/CustomerLove'
+import Footer from '../Components/Dashboard Components/Footer'
 
 const Dashboard = () => {
   return (
@@ -23,9 +23,9 @@ const Dashboard = () => {
       />
     </div>
 
-    {/* this is Customers love slider */}
+   
 
-    <ImageCardSlider/>
+    <ImageCardSlider/>    {/* this is Customers love slider */}
 
     {/* this is banner image of the be free of the furnish */}
 

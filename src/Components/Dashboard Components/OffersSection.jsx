@@ -26,20 +26,25 @@ const offers = [
   },
 ];
 
-const OffersSection = ({ showOffer = true })  => {
+const OffersSection = ({ offerId }) => {
+  // find the offer by ID
+  const filteredOffers = offerId
+    ? offers.filter((offer) => offer.id === offerId)
+    : offers;
+
   return (
-    <div className="w-[1152px] px-16 py-5 mt-10 ">
+    <div className="w-[1152px] px-16 py-5 mt-10">
       {/* Section Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Offers & Discounts</h2>
-        <button className="text-sm text-gray-600 hover:text-black flex items-center gap-1">
+        <button className="text-sm text-gray-600 hover:text-black flex  pr-0">
           See All →
         </button>
       </div>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {offers.map((offer) => (
+        {filteredOffers.map((offer) => (
           <div
             key={offer.id}
             className="relative bg-yellow-50 border border-yellow-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"

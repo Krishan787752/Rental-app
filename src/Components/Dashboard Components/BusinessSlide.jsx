@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const BusinessSlider = () => {
+
+{/* this is the slider in which only one  img is there on a slide*/}  
   const slides = [
     "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_unlmtd_slim_2.jpg",
     "https://assets.furlenco.com/image/upload/dpr_1.0,f_auto,q_auto/v1/s3-furlenco-images/evolve_2_0/newbrand_banner_genz_rent_slim.jpg",
