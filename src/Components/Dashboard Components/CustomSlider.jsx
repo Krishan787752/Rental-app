@@ -52,7 +52,7 @@ export default function CustomSlider({ showButtons = true }) {
             <img
               src={slide.img}
               alt={`Slide ${slide.id}`}
-              className="w-full h-[180px] sm:h-[260px] object-cover rounded-xl shadow transition-all duration-300"
+              className="w-full h-[180px] sm:h-[260px] object-contain rounded-xl shadow transition-all duration-300"
             />
           </div>
         ))}
