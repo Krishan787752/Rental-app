@@ -39,13 +39,13 @@ export default function CustomSlider({ showButtons = true }) {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-      { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 640, settings: { slidesToShow: 2, slidesToScroll: 1 } }, // mobile: 2 images
     ],
   };
 
   return (
-    <div className="w-full px-2 sm:px-6 py-6 sm:py-10 pt-10 sm:pt-24 bg-white overflow-hidden">
+    <div className="w-full px-0 sm:px-6 py-6 sm:py-10 pt-10 sm:pt-24 bg-white overflow-hidden">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="px-1 sm:px-2">
@@ -58,7 +58,6 @@ export default function CustomSlider({ showButtons = true }) {
         ))}
       </Slider>
 
-      {/* Buttons only if showButtons = true */}
       {showButtons && (
         <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-0 mt-4 sm:mt-[-4px]">
           <button className="bg-blue-800 text-white px-6 py-3 text-base sm:text-lg font-semibold rounded-full w-full sm:w-auto transition hover:bg-blue-900">
