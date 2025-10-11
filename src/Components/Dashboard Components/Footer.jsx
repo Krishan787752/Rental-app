@@ -70,14 +70,14 @@ export default function Footer() {
           {/* App Store Buttons */}
           <div className="flex gap-3 sm:gap-4 mt-4 md:mt-0">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              src="https://assets.furlenco.com/image/upload/c_scale,e_blur:75,f_auto,q_0.5,w_20/v1/s3-furlenco-images/2.0/social-media/google-play-stroe.jpg"
               alt="Google Play"
-              className="h-8 sm:h-10 w-auto"
+              className="h-8 sm:h-10 w-auto rounded"
             />
             <img
-              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              src="https://assets.furlenco.com/image/upload/c_scale,e_blur:75,f_auto,q_0.5,w_20/v1/s3-furlenco-images/2.0/social-media/apple-store.jpg"
               alt="App Store"
-              className="h-8 sm:h-10 w-auto"
+              className="h-8 sm:h-10 w-auto rounded"
             />
           </div>
         </div>

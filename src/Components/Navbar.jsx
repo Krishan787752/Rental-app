@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaUser, FaHeart, FaShoppingCart, FaSearch, FaClock, FaBars, FaTimes } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+import LocationDrawer from "./LocationDrawer";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [locOpen, setLocOpen] = useState(false);
+  const [pincode, setPincode] = useState("");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("pincode");
+    if (saved) setPincode(saved);
+    else setPincode("560068");
+  }, []);
+
+  const applyPincode = (pin) => {
+    setPincode(pin);
+    try { localStorage.setItem("pincode", pin); } catch {}
+    setLocOpen(false);
+  };
 
   return (
-    <nav className="w-full fixed top-0 z-50 shadow-sm bg-white">
+    <nav className="w-full sticky top-0 z-50 shadow-sm bg-white">
       {/* Mobile Layout */}
       <div className="md:hidden flex flex-col">
         {/* Top Row: Hamburger + Centered Logo */}
@@ -25,11 +40,14 @@ export default function Navbar() {
         <div className="mx-4 mt-3 mb-2 z-40">
           <div className="flex items-center justify-between bg-white rounded-full shadow px-4 py-2">
             {/* Location */}
-            <div className="flex items-center text-gray-600">
+            <button
+              onClick={() => setLocOpen(true)}
+              className="flex items-center text-gray-600 active:scale-[0.98]"
+            >
               <MdLocationOn className="text-xl mr-1" />
               <span>Delivery to</span>
-              <span className="ml-1 font-semibold">560068</span>
-            </div>
+              <span className="ml-1 font-semibold">{pincode}</span>
+            </button>
             {/* Icons */}
             <div className="flex items-center space-x-4">
               <FaSearch className="text-gray-700 text-xl cursor-pointer" />
@@ -79,11 +97,14 @@ export default function Navbar() {
         <div className="flex items-center space-x-6">
           <h1 className="text-3xl font-extrabold text-teal-700">Rental App</h1>
           <div className="flex items-center space-x-6 text-lg">
-            <div className="flex items-center text-gray-600 text-base">
+            <button
+              onClick={() => setLocOpen(true)}
+              className="flex items-center text-gray-600 text-base active:scale-[0.98]"
+            >
               <MdLocationOn className="text-2xl mr-1" />
               <span>Delivery to</span>
-              <span className="ml-1 font-semibold">560068</span>
-            </div>
+              <span className="ml-1 font-semibold">{pincode}</span>
+            </button>
             <NavLink to="/Pages/Buy" className="flex items-center space-x-1 cursor-pointer hover:text-blue-600">
               <span className="font-medium">Buy</span>
               <span>▼</span>
@@ -114,6 +135,13 @@ export default function Navbar() {
           <FaShoppingCart className="cursor-pointer text-2xl" />
         </div>
       </div>
+      {/* Location Drawer */}
+      <LocationDrawer
+        open={locOpen}
+        onClose={() => setLocOpen(false)}
+        value={pincode}
+        onChange={applyPincode}
+      />
     </nav>
   );
 }

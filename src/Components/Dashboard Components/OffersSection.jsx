@@ -33,7 +33,7 @@ const OffersSection = ({ offerId }) => {
     : offers;
 
   return (
-    <div className="w-[1152px] px-16 py-5 mt-10">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-16 py-5 mt-10">
       {/* Section Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Offers & Discounts</h2>
