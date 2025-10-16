@@ -21,6 +21,11 @@ export default function SpotlightSlider() {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2, arrows: false, dots: true } },
+      { breakpoint: 480, settings: { slidesToShow: 1, arrows: false, dots: true } },
+    ],
   };
 
   return (
@@ -46,7 +51,7 @@ export default function SpotlightSlider() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-56 object-contain bg-gray-50"
+                    className="w-full h-48 md:h-56 object-contain bg-gray-50"
                   />
 
                   {/* Card Content */}

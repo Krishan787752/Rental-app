@@ -54,8 +54,8 @@ export default function DealsSlider() {
     prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 2, arrows: false, dots: true } },
+      { breakpoint: 480, settings: { slidesToShow: 1, arrows: false, dots: true } },
     ],
   };
 
@@ -81,7 +81,7 @@ export default function DealsSlider() {
               <img
                 src={deal.image}
                 alt={deal.title}
-                className="w-full h-56 object-contain bg-gray-50"
+                className="w-full h-48 md:h-56 object-contain bg-gray-50"
               />
 
               {/* Product Details */}

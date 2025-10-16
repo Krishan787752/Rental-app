@@ -82,10 +82,10 @@ export default function Navbar() {
           {/* Menu Items */}
           <div className="flex flex-col space-y-4 px-6 py-6">
             <NavLink to="/Pages/Buy" className="font-medium text-lg cursor-pointer hover:text-blue-600">Buy</NavLink>
-            <div className="flex items-center space-x-2 cursor-pointer">
+            <NavLink to="/Pages/Rent" className="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
               <FaClock className="text-teal-600" />
               <span className="font-medium text-lg">Rent</span>
-            </div>
+            </NavLink>
             <span className="font-bold text-purple-500 text-lg cursor-pointer">UNLMTD</span>
           </div>
         </div>
@@ -109,11 +109,11 @@ export default function Navbar() {
               <span className="font-medium">Buy</span>
               <span>▼</span>
             </NavLink>
-            <div className="flex items-center space-x-1 cursor-pointer">
+            <NavLink to="/Pages/Rent" className="flex items-center space-x-1 cursor-pointer hover:text-blue-600">
               <FaClock className="text-teal-600 text-xl" />
               <span className="font-medium">Rent</span>
               <span>▼</span>
-            </div>
+            </NavLink>
             <span className="font-bold text-purple-500">UNLMTD</span>
           </div>
         </div>

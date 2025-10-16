@@ -36,7 +36,7 @@ export default function Buy() {
             <img
               src={item.img}
               alt={item.name}
-              className="w-48 h-20 object-contain rounded-lg mb-2"
+              className="w-24 h-12 md:w-48 md:h-20 object-contain rounded-lg mb-2"
             />
             {/* Label */}
             <p className="mt-2 text-gray-700">{item.name}</p>
